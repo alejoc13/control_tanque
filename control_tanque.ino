@@ -7,10 +7,8 @@ void setup() {
   pinMode(Echo, INPUT);  //pin como entrada
   digitalWrite(Trigger, LOW);//Inicializamos el pin con 0
 }
- 
-void loop()
-{
- 
+
+void distance_control(int time_review){
   long t; //timepo que demora en llegar el eco
   long d; //distancia en centimetros
  
@@ -25,5 +23,10 @@ void loop()
   Serial.print(d);      //Enviamos serialmente el valor de la distancia
   Serial.print("cm");
   Serial.println();
-  delay(1000);          //Hacemos una pausa de 100ms
+  delay(time_review);          //Hacemos una pausa de 100ms
+}
+
+void loop(){
+  distance_control(1000);
+  
 }
